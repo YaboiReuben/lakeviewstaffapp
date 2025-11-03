@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Application</title>
-    <!-- Load Tailwind CSS -->
+    <title>Application Unavailable - Maintenance</title>
+    <!-- Load Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Lucide Icons for checkmarks and warnings -->
+    <!-- Load Lucide Icons for the warning symbol -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Define the custom color palette based on the uploaded image */
+        /* Define the custom color palette */
         :root {
             --color-primary-dark: #1F618D;    /* Dark Blue - Text, accents */
             --color-accent-medium: #5DADE2;   /* Medium Blue - Buttons */
@@ -18,21 +18,7 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg-light);
-        }
-        /* Custom styles for the hidden notice reveal */
-        .hidden-notice {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            pointer-events: none;
-        }
-        .notice-trigger:hover + .hidden-notice,
-        .notice-trigger:focus + .hidden-notice,
-        .notice-trigger:active + .hidden-notice {
-            display: block;
-            opacity: 1;
-            pointer-events: auto;
+            background-color: var(--color-bg-light); /* Apply light blue background */
         }
     </style>
     <script>
@@ -48,504 +34,42 @@
         }
     </script>
 </head>
-<body class="min-h-screen flex items-start justify-center p-4 sm:p-8">
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-8">
 
-    <div id="app-container" class="w-full max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-2xl transition-all duration-300">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-primary-dark mb-6 border-b-4 border-accent-medium pb-2">Staff Application</h1>
+    <!-- System Down / Maintenance Screen -->
+    <div id="down-screen" class="w-full max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-2xl text-center">
+        
+        <!-- Icon: Large, visible warning icon -->
+        <i data-lucide="shield-alert" class="w-16 h-16 mx-auto text-red-500 mb-6"></i>
 
-        <!-- Step 1: Requirements Screen -->
-        <div id="step-requirements">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">🪪 Step 1 – Requirements</h2>
-            <ul class="space-y-3 mb-6 p-4 rounded-lg bg-green-50/70 border border-green-200">
-                <li class="flex items-center text-lg text-primary-dark">
-                    <i data-lucide="check-circle" class="w-6 h-6 mr-3 text-green-600"></i>
-                    You must be in our Roblox group
-                </li>
-                <li class="flex items-center text-lg text-primary-dark">
-                    <i data-lucide="check-circle" class="w-6 h-6 mr-3 text-green-600"></i>
-                    You must be in our Discord server
-                </li>
-                <li class="flex items-center text-lg text-primary-dark">
-                    <i data-lucide="check-circle" class="w-6 h-6 mr-3 text-green-600"></i>
-                    Your answers must not be AI-generated
-                </li>
-                <li class="flex items-center text-lg text-primary-dark">
-                    <i data-lucide="check-circle" class="w-6 h-6 mr-3 text-green-600"></i>
-                    You must be 14 years or older
-                </li>
-            </ul>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-primary-dark mb-4">
+            Application Unavailable
+        </h1>
+        
+        <p class="text-lg text-gray-700 mb-6">
+            The staff application system is currently **offline** or **under maintenance** due to technical issues.
+        </p>
 
-            <!-- Hidden Danger Notice -->
-            <div class="relative inline-block mb-8">
-                <button class="notice-trigger cursor-pointer text-lg font-bold text-yellow-600 focus:outline-none"
-                        aria-label="Important Notice Trigger">
-                    ⚠️ Important Notice
-                </button>
-                <div class="hidden-notice absolute z-10 p-3 mt-1 w-64 bg-yellow-100 border border-yellow-400 rounded-lg shadow-xl text-sm text-gray-800 -left-1/2 transform translate-x-1/2 sm:left-0 sm:translate-x-0">
-                    <p class="font-semibold text-yellow-700">⚠️ Important Notice</p>
-                    <p>After December 10th, all Australians must be over 16 to apply due to new social media restrictions.</p>
-                </div>
-            </div>
-
-            <button onclick="startApp()" class="w-full py-3 bg-accent-medium text-white font-bold text-lg rounded-lg shadow-lg hover:bg-opacity-80 transition duration-150 transform hover:scale-[1.01] flex items-center justify-center">
-                Start Staff App
-                <i data-lucide="check-circle" class="w-5 h-5 ml-2"></i>
-            </button>
+        <!-- Red alert box for emphasis -->
+        <div class="p-4 rounded-lg bg-red-50/70 border border-red-200 inline-block">
+            <p class="font-semibold text-red-700 flex items-center justify-center">
+                <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
+                We expect the system to be available again shortly.
+            </p>
         </div>
 
-        <!-- Step 2: Role Selection Screen -->
-        <div id="step-role-select" class="hidden">
-            <h2 class="text-2xl font-semibold mb-6 text-gray-700">🧭 Step 2 – Choose Your Role</h2>
-
-            <div class="space-y-4 max-h-96 overflow-y-auto pr-2">
-                <!-- Role Card Template (Radio Buttons) -->
-                <label for="role-Maintenance Worker" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-Maintenance Worker" value="Maintenance Worker" class="sr-only">
-                    <i data-lucide="wrench" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">🔧 Maintenance Worker</span>
-                </label>
-                <label for="role-Cleaner" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-Cleaner" value="Cleaner" class="sr-only">
-                    <i data-lucide="broom" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">🧹 Cleaner</span>
-                </label>
-                <label for="role-I.T Support" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-I.T Support" value="I.T Support" class="sr-only">
-                    <i data-lucide="laptop" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">💻 I.T Support</span>
-                </label>
-                <label for="role-Office Staff" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-Office Staff" value="Office Staff" class="sr-only">
-                    <i data-lucide="building-2" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">🏢 Office Staff</span>
-                </label>
-                <label for="role-Casual Teacher" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-Casual Teacher" value="Casual Teacher" class="sr-only">
-                    <i data-lucide="apple" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">🍏 Casual Teacher</span>
-                </label>
-                <label for="role-Classroom Teacher" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-Classroom Teacher" value="Classroom Teacher" class="sr-only">
-                    <i data-lucide="book-open" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">🍎 Classroom Teacher</span>
-                </label>
-                <label for="role-SLSO" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-SLSO" value="SLSO" class="sr-only">
-                    <i data-lucide="puzzle" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">🧩 SLSO (School Learning Support Officer)</span>
-                </label>
-                <label for="role-Counsellor" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-Counsellor" value="Counsellor" class="sr-only">
-                    <i data-lucide="message-square" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">💬 Counsellor</span>
-                </label>
-                <label for="role-Head Teacher" class="role-card flex items-center p-4 border-2 border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-150 hover:border-accent-medium has-[:checked]:border-primary-dark has-[:checked]:bg-primary-dark/10">
-                    <input type="radio" name="role" id="role-Head Teacher" value="Head Teacher" class="sr-only">
-                    <i data-lucide="briefcase" class="w-8 h-8 mr-4 text-primary-dark"></i>
-                    <span class="text-xl font-medium text-primary-dark">🧑‍💼 Head Teacher</span>
-                </label>
-            </div>
-
-            <button onclick="selectRole()" id="select-role-btn" disabled class="mt-6 w-full py-3 bg-accent-medium text-white font-bold text-lg rounded-lg shadow-lg opacity-50 cursor-not-allowed transition duration-150">
-                Continue to Questions
-            </button>
-        </div>
-
-        <!-- Step 3: Questionnaire -->
-        <div id="step-questionnaire" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">
-                <span id="role-title" class="text-primary-dark"></span> Application
-            </h2>
-            <div class="mb-4 text-sm text-gray-500">
-                Question <span id="current-q-num">1</span> of <span id="total-q-num">10</span>
-            </div>
-            
-            <div id="question-area" class="min-h-[150px] p-4 bg-gray-50 rounded-lg border border-primary-dark/10 mb-6">
-                <!-- Dynamic question content goes here -->
-            </div>
-
-            <div class="flex space-x-4">
-                <button onclick="nextQuestion()" id="next-q-btn" class="flex-1 py-3 bg-accent-medium text-white font-bold text-lg rounded-lg shadow-lg hover:bg-opacity-80 transition duration-150 transform hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed">
-                    Next Question
-                </button>
-                <button onclick="submitApplication()" id="submit-btn" class="flex-1 py-3 bg-green-600 text-white font-bold text-lg rounded-lg shadow-lg hover:bg-green-700 transition duration-150 transform hover:scale-[1.01] hidden">
-                    Submit Application
-                </button>
-            </div>
-            <div id="error-message" class="text-red-500 mt-2 hidden">Please answer the question before proceeding.</div>
-        </div>
-
-        <!-- Final Submission/Thank You Screen -->
-        <div id="step-complete" class="hidden text-center py-10">
-            <i data-lucide="party-popper" class="w-16 h-16 mx-auto text-green-500 mb-4"></i>
-            <h2 class="text-3xl font-bold text-primary-dark mb-4">Application Submitted!</h2>
-            <p class="text-lg text-gray-700">Thank you for applying to be a <span id="final-role"></span>. We will review your submission shortly.</p>
-        </div>
-
+        <!-- Refresh Button -->
+        <button onclick="window.location.reload();" class="mt-8 w-full py-3 bg-accent-medium text-white font-bold text-lg rounded-lg shadow-lg hover:bg-opacity-80 transition duration-150 transform hover:scale-[1.01] flex items-center justify-center">
+            Try Refreshing the Page
+            <i data-lucide="rotate-ccw" class="w-5 h-5 ml-2"></i>
+        </button>
     </div>
 
     <script>
-        // --- Configuration ---
-        const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1434832147570753568/di9FVcmIJSuLKc14SqOteUxFFvQMeKaHoo2rdfejaosm0INgQ-GtNR5ZYWc7xgLEB8aB';
-
-        // Use lucide.createIcons() to render the icons after the DOM is loaded
+        // Render Lucide icons
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-            
-            // Enable role selection button if any role is selected on load (useful for back button scenarios)
-            const roleRadios = document.querySelectorAll('input[name="role"]');
-            roleRadios.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    document.getElementById('select-role-btn').disabled = false;
-                    document.getElementById('select-role-btn').classList.remove('opacity-50', 'cursor-not-allowed');
-                    document.getElementById('select-role-btn').classList.add('hover:bg-opacity-80', 'transform', 'hover:scale-[1.01]');
-                });
-            });
         });
-
-        // --- Application State and Data ---
-        let selectedRole = null;
-        let currentQuestionIndex = 0;
-        const answers = {};
-        
-        // Define all questions and options
-        const allQuestions = {
-            'Maintenance Worker': [
-                { type: 'text', prompt: 'Why do you want to become a Maintenance Worker?' },
-                { type: 'text', prompt: 'What tools or equipment are you confident using?' },
-                { type: 'text', prompt: 'Have you done any maintenance or repair work before?' },
-                { type: 'select', prompt: '🔽 How confident are you working around buildings?', options: ['Very confident', 'Somewhat confident', 'Not confident'] },
-                { type: 'text', prompt: 'How would you report a safety issue you notice?' },
-                { type: 'select', prompt: '🔽 Do you prefer working alone or in a team?', options: ['Alone', 'In a team', 'Either'] },
-                { type: 'text', prompt: 'What days or times are you available to help?' },
-                { type: 'select', prompt: '🔽 How would you rate your problem-solving skills?', options: ['Excellent', 'Good', 'Fair', 'Needs improvement'] },
-                { type: 'text', prompt: 'Describe how you’d fix a leaking tap or broken door handle.' },
-                { type: 'text', prompt: 'Do you have any special skills that could help the school?' }
-            ],
-            'Cleaner': [
-                { type: 'text', prompt: 'Why do you want to become a Cleaner?' },
-                { type: 'select', prompt: '🔽 How often do you clean or help maintain spaces?', options: ['Daily', 'Weekly', 'Occasionally'] },
-                { type: 'text', prompt: 'What areas do you feel most confident cleaning?' },
-                { type: 'select', prompt: '🔽 Which time of day do you prefer to work?', options: ['Morning', 'Afternoon', 'Evening'] },
-                { type: 'text', prompt: 'How would you handle a messy classroom or office area?' },
-                { type: 'text', prompt: 'What cleaning supplies do you know how to use safely?' },
-                { type: 'select', prompt: '🔽 How do you stay motivated doing repetitive tasks?', options: ['Music', 'Quiet focus', 'Working with others'] },
-                { type: 'text', prompt: 'What would you do if you noticed something damaged while cleaning?' },
-                { type: 'text', prompt: 'Are you comfortable working around students?' },
-                { type: 'select', prompt: '🔽 How would you rate your attention to detail?', options: ['Excellent', 'Good', 'Fair', 'Needs improvement'] }
-            ],
-            'I.T Support': [
-                { type: 'text', prompt: 'Why do you want to be in I.T Support?' },
-                { type: 'select', prompt: '🔽 What’s your current tech experience level?', options: ['Beginner', 'Intermediate', 'Advanced'] },
-                { type: 'text', prompt: 'What kinds of computer issues have you solved before?' },
-                { type: 'text', prompt: 'How would you help a teacher whose laptop won’t turn on?' },
-                { type: 'select', prompt: '🔽 Are you familiar with fixing network or internet problems?', options: ['Yes', 'Somewhat', 'No'] },
-                { type: 'text', prompt: 'How would you explain a tech problem to a non-technical person?' },
-                { type: 'text', prompt: 'What devices or systems are you most confident with?' },
-                { type: 'select', prompt: '🔽 What’s your favorite part of tech work?', options: ['Troubleshooting', 'Setting up devices', 'Helping others', 'Security and data'] },
-                { type: 'text', prompt: 'Have you worked in a support role before?' },
-                { type: 'text', prompt: 'How do you keep up with new technology?' }
-            ],
-            'Office Staff': [
-                { type: 'text', prompt: 'Why do you want to be Office Staff?' },
-                { type: 'select', prompt: '🔽 How organized would you say you are?', options: ['Very organized', 'Somewhat organized', 'Needs improvement'] },
-                { type: 'text', prompt: 'How would you handle confidential information?' },
-                { type: 'select', prompt: '🔽 What office tasks do you enjoy most?', options: ['Filing paperwork', 'Helping students', 'Taking calls', 'Organizing schedules'] },
-                { type: 'text', prompt: 'Have you worked with documents or forms before?' },
-                { type: 'text', prompt: 'How do you handle stress or deadlines?' },
-                { type: 'text', prompt: 'What do you think is most important in a school office?' },
-                { type: 'select', prompt: '🔽 What computer programs are you confident using?', options: ['Word / Docs', 'Excel / Sheets', 'Email', 'None'] },
-                { type: 'text', prompt: 'Describe a time you helped keep things organized.' },
-                { type: 'text', prompt: 'How would you greet a visitor at the office?' }
-            ],
-            'Casual Teacher': [
-                { type: 'text', prompt: 'Why do you want to be a Casual Teacher?' },
-                { type: 'select', prompt: '🔽 What year levels are you most comfortable teaching?', options: ['K–2', '3–6', '7–12'] },
-                { type: 'text', prompt: 'How would you manage a noisy class?' },
-                { type: 'text', prompt: 'What subject do you enjoy teaching most?' },
-                { type: 'select', prompt: '🔽 How do you make lessons engaging?', options: ['Games', 'Group work', 'Questions', 'Rewards'] },
-                { type: 'text', prompt: 'How do you handle different learning needs?' },
-                { type: 'text', prompt: 'What’s your teaching style like?' },
-                { type: 'select', prompt: '🔽 How do you track your lessons or plans?', options: ['Notebook', 'Digital planner', 'Memory'] },
-                { type: 'text', prompt: 'Describe a time you helped a struggling student.' },
-                { type: 'text', prompt: 'What would you do if another teacher disagreed with you?' }
-            ],
-            'Classroom Teacher': [
-                { type: 'text', prompt: 'Why do you want to be a Classroom Teacher?' },
-                { type: 'select', prompt: '🔽 How do you make sure students feel included?', options: ['Group work', 'Listening', 'Encouragement', 'Clear rules'] },
-                { type: 'text', prompt: 'What grade do you prefer teaching and why?' },
-                { type: 'text', prompt: 'How do you manage your classroom effectively?' },
-                { type: 'select', prompt: '🔽 What would you do if a student refuses to work?', options: ['Talk privately', 'Give options', 'Call support staff', 'Continue lesson'] },
-                { type: 'text', prompt: 'How do you track student progress?' },
-                { type: 'text', prompt: 'How do you prepare for a new topic?' },
-                { type: 'select', prompt: '🔽 How would you rate your classroom management skills?', options: ['Excellent', 'Good', 'Fair', 'Needs improvement'] },
-                { type: 'text', prompt: 'What motivates you as a teacher?' },
-                { type: 'text', prompt: 'What makes a good learning environment?' }
-            ],
-            'SLSO': [
-                { type: 'text', prompt: 'Why do you want to be an SLSO?' },
-                { type: 'select', prompt: '🔽 Which age group do you prefer supporting?', options: ['Primary (K–6)', 'High School (7–12)'] },
-                { type: 'text', prompt: 'How do you assist students who need extra help?' },
-                { type: 'select', prompt: '🔽 How patient are you when explaining things?', options: ['Very patient', 'Sometimes patient', 'Not patient'] },
-                { type: 'text', prompt: 'How do you encourage students with disabilities?' },
-                { type: 'text', prompt: 'What strategies help you stay calm under pressure?' },
-                { type: 'select', prompt: '🔽 What would you do if a student became upset?', options: ['Give space', 'Offer comfort', 'Get help', 'Talk calmly'] },
-                { type: 'text', prompt: 'How do you work with teachers as part of a team?' },
-                { type: 'text', prompt: 'Describe a time you helped someone succeed.' },
-                { type: 'select', prompt: '🔽 What’s most important in your role?', options: ['Safety', 'Patience', 'Communication', 'Respect'] }
-            ],
-            'Counsellor': [
-                { type: 'text', prompt: 'Why do you want to be a Counsellor?' },
-                { type: 'select', prompt: '🔽 What age group do you feel most confident supporting?', options: ['Primary', 'Secondary', 'Any'] },
-                { type: 'text', prompt: 'How would you help a student feeling anxious or sad?' },
-                { type: 'select', prompt: '🔽 What’s the best way to build trust with students?', options: ['Listening', 'Privacy', 'Patience', 'Humor'] },
-                { type: 'text', prompt: 'How would you handle sensitive information?' },
-                { type: 'text', prompt: 'How do you react under emotional pressure?' },
-                { type: 'select', prompt: '🔽 How would you rate your communication skills?', options: ['Excellent', 'Good', 'Fair', 'Needs improvement'] },
-                { type: 'text', prompt: 'Describe a time you helped someone with a personal issue.' },
-                { type: 'text', prompt: 'What would you do if a student didn’t want to open up?' },
-                { type: 'select', prompt: '🔽 What is your biggest strength as a counsellor?', options: ['Empathy', 'Listening', 'Problem-solving', 'Boundaries'] }
-            ],
-            'Head Teacher': [
-                { type: 'text', prompt: 'Why do you want to be a Head Teacher?' },
-                { type: 'select', prompt: '🔽 How experienced are you with leadership or mentoring?', options: ['Very experienced', 'Some experience', 'New to it'] },
-                { type: 'text', prompt: 'How do you motivate your teaching team?' },
-                { type: 'text', prompt: 'What subjects or programs have you led before?' },
-                { type: 'select', prompt: '🔽 How would you handle conflict between staff?', options: ['Private discussion', 'Mediation', 'Ignore unless serious'] },
-                { type: 'text', prompt: 'How do you balance teaching with leadership?' },
-                { type: 'select', prompt: '🔽 How do you communicate with your team best?', options: ['Meetings', 'Email', 'Chat', 'Combination'] },
-                { type: 'text', prompt: 'How would you support a struggling teacher?' },
-                { type: 'text', prompt: 'How would you improve student engagement across classes?' },
-                { type: 'select', prompt: '🔽 What leadership style best describes you?', options: ['Supportive', 'Direct', 'Collaborative', 'Delegative'] }
-            ]
-        };
-
-        // --- View Navigation Functions ---
-
-        function startApp() {
-            document.getElementById('step-requirements').classList.add('hidden');
-            document.getElementById('step-role-select').classList.remove('hidden');
-        }
-
-        function selectRole() {
-            const roleRadio = document.querySelector('input[name="role"]:checked');
-            if (roleRadio) {
-                selectedRole = roleRadio.value;
-                answers[selectedRole] = {}; // Initialize answers for the selected role
-                document.getElementById('step-role-select').classList.add('hidden');
-                document.getElementById('step-questionnaire').classList.remove('hidden');
-                document.getElementById('role-title').textContent = selectedRole;
-                document.getElementById('total-q-num').textContent = allQuestions[selectedRole].length;
-                currentQuestionIndex = 0;
-                renderQuestion();
-            }
-        }
-
-        // --- Questionnaire Logic ---
-
-        function renderQuestion() {
-            const questionData = allQuestions[selectedRole][currentQuestionIndex];
-            const questionArea = document.getElementById('question-area');
-            const nextBtn = document.getElementById('next-q-btn');
-            const submitBtn = document.getElementById('submit-btn');
-
-            document.getElementById('current-q-num').textContent = currentQuestionIndex + 1;
-            questionArea.innerHTML = ''; // Clear previous content
-
-            // 1. Question Prompt
-            const promptEl = document.createElement('p');
-            promptEl.className = 'text-xl font-semibold text-primary-dark mb-4';
-            promptEl.textContent = questionData.prompt;
-            questionArea.appendChild(promptEl);
-
-            // 2. Input/Select Area
-            if (questionData.type === 'text') {
-                const textarea = document.createElement('textarea');
-                textarea.id = 'current-answer';
-                textarea.rows = 5;
-                textarea.className = 'w-full p-3 border-2 border-primary-dark/30 rounded-lg focus:outline-none focus:border-accent-medium transition duration-150';
-                textarea.placeholder = 'Type your answer here...';
-                
-                // Load existing answer if available
-                if (answers[selectedRole][currentQuestionIndex]) {
-                    textarea.value = answers[selectedRole][currentQuestionIndex];
-                }
-
-                // Add input listener for validation logic
-                textarea.addEventListener('input', checkAnswer);
-                questionArea.appendChild(textarea);
-            } else if (questionData.type === 'select') {
-                const optionsContainer = document.createElement('div');
-                optionsContainer.className = 'space-y-3';
-                questionData.options.forEach((option, index) => {
-                    const optionId = `option-${currentQuestionIndex}-${index}`;
-                    
-                    const label = document.createElement('label');
-                    label.htmlFor = optionId;
-                    label.className = 'flex items-center p-3 border border-primary-dark/20 rounded-lg cursor-pointer bg-white transition duration-100 hover:bg-gray-50';
-                    
-                    const radio = document.createElement('input');
-                    radio.type = 'radio';
-                    radio.name = 'current-answer-group';
-                    radio.id = optionId;
-                    radio.value = option;
-                    radio.className = 'h-5 w-5 text-accent-medium border-gray-300 focus:ring-accent-medium mr-3';
-
-                    const span = document.createElement('span');
-                    span.textContent = option;
-                    span.className = 'text-gray-700 font-medium';
-                    
-                    // Check if this option was previously selected
-                    if (answers[selectedRole][currentQuestionIndex] === option) {
-                        radio.checked = true;
-                    }
-
-                    // Add change listener for validation logic
-                    radio.addEventListener('change', checkAnswer);
-                    
-                    label.appendChild(radio);
-                    label.appendChild(span);
-                    optionsContainer.appendChild(label);
-                });
-                questionArea.appendChild(optionsContainer);
-            }
-
-            // 3. Button visibility check
-            if (currentQuestionIndex === allQuestions[selectedRole].length - 1) {
-                nextBtn.classList.add('hidden');
-                submitBtn.classList.remove('hidden');
-            } else {
-                nextBtn.classList.remove('hidden');
-                submitBtn.classList.add('hidden');
-            }
-
-            // Disable button until an answer is provided
-            checkAnswer();
-
-            lucide.createIcons(); // Re-render icons after dynamic content update
-        }
-
-        function checkAnswer() {
-            const questionData = allQuestions[selectedRole][currentQuestionIndex];
-            const nextBtn = document.getElementById('next-q-btn');
-            const submitBtn = document.getElementById('submit-btn');
-            const errorMsg = document.getElementById('error-message');
-            let hasAnswer = false;
-
-            if (questionData.type === 'text') {
-                const textarea = document.getElementById('current-answer');
-                if (textarea && textarea.value.trim().length > 0) {
-                    hasAnswer = true;
-                }
-            } else if (questionData.type === 'select') {
-                if (document.querySelector('input[name="current-answer-group"]:checked')) {
-                    hasAnswer = true;
-                }
-            }
-
-            if (hasAnswer) {
-                if (!nextBtn.classList.contains('hidden')) {
-                    nextBtn.disabled = false;
-                    nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                }
-                if (!submitBtn.classList.contains('hidden')) {
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                }
-                errorMsg.classList.add('hidden');
-            } else {
-                nextBtn.disabled = true;
-                submitBtn.disabled = true;
-                nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            }
-        }
-
-        function collectAnswer() {
-            const questionData = allQuestions[selectedRole][currentQuestionIndex];
-            let answer = null;
-
-            if (questionData.type === 'text') {
-                const textarea = document.getElementById('current-answer');
-                answer = textarea ? textarea.value.trim() : null;
-            } else if (questionData.type === 'select') {
-                const radio = document.querySelector('input[name="current-answer-group"]:checked');
-                answer = radio ? radio.value : null;
-            }
-
-            if (answer) {
-                answers[selectedRole][currentQuestionIndex] = answer;
-                return true;
-            } else {
-                document.getElementById('error-message').classList.remove('hidden');
-                return false;
-            }
-        }
-
-        function nextQuestion() {
-            if (collectAnswer()) {
-                currentQuestionIndex++;
-                renderQuestion();
-            }
-        }
-
-        function submitApplication() {
-            if (collectAnswer()) {
-                // 1. Build Discord Webhook Payload
-                const questions = allQuestions[selectedRole];
-                const fields = [];
-
-                for (let i = 0; i < questions.length; i++) {
-                    const q = questions[i].prompt;
-                    const a = answers[selectedRole][i];
-                    
-                    // Format for webhook fields
-                    fields.push({
-                        name: `Q${i + 1}: ${q}`,
-                        value: `**Answer:** ${a}`,
-                        inline: false
-                    });
-                }
-
-                const payload = {
-                    username: "Staff Application System",
-                    embeds: [{
-                        title: `📄 New Staff Application: ${selectedRole}`,
-                        color: 3891430, // Corresponds to the accent-medium blue color
-                        description: `A new application has been submitted for the **${selectedRole}** role.`,
-                        fields: fields
-                    }]
-                };
-
-                // 2. Send the Webhook asynchronously
-                fetch(DISCORD_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload)
-                })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Application successfully sent to Discord webhook.');
-                    } else {
-                        // Log failure, but continue to success screen for user experience
-                        console.error('Failed to send application to Discord webhook. Status:', response.status);
-                    }
-                })
-                .catch(error => {
-                    // Log network error, but continue to success screen for user experience
-                    console.error('Network error while sending webhook:', error);
-                })
-                .finally(() => {
-                    // 3. Display Final Submission Screen regardless of webhook status
-                    document.getElementById('step-questionnaire').classList.add('hidden');
-                    document.getElementById('final-role').textContent = selectedRole;
-                    document.getElementById('step-complete').classList.remove('hidden');
-                    lucide.createIcons();
-                });
-            }
-        }
     </script>
 </body>
 </html>
